@@ -35,16 +35,19 @@ componentDidMount(){
             })
         })
 }
+
 handleSubmit(event){
     event.preventDefault()
+    const randomNum=Math.floor(Math.random()*this.state.allMemeImgs.length)
+    const randomMemeImg=this.state.allMemeImgs[randomNum].url
     this.setState({
-        randomImage:allMemeImgs.url
+        randomImage:randomMemeImg
     })
 }
  render(){
         return(
             <div>
-               <form className="meme-form" onSubmit={this.handleSubmit}>
+               <form className="meme-form" onSubmit={this.handleSubmit} >
 
                         <input
                         type="text"
@@ -73,3 +76,18 @@ handleSubmit(event){
 
 
 export default MemeGenerator
+
+
+// Using context API instead of Redux   
+// its simpler to learn
+/**
+ * Other modern/advanced React features/topics to learn:
+ * 
+ * Official React Context API - https://reactjs.org/docs/context.html
+ * Error Boundaries - https://reactjs.org/docs/error-boundaries.html
+ * render props - https://reactjs.org/docs/render-props.html
+ * Higher Order Components - https://reactjs.org/docs/higher-order-components.html
+ * React Router - https://reacttraining.com/react-router/core/guides/philosophy
+ * React Hooks - https://reactjs.org/docs/hooks-intro.html
+ * React lazy, memo, and Suspense - https://reactjs.org/blog/2018/10/23/react-v-16-6.html
+ */
